@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        stack<int>s;
+        vector<int>ans;
+      
+        for(int i=0;i<nums.size();++i){
+            if(nums[i]%2==0)//if digit is even push it into the vector
+
+            ans.push_back(nums[i]);
+            else //else push it into the stack
+                s.push(nums[i]);
+   
+        }
+        while (!s.empty()){
+            ans.push_back(s.top());
+            s.pop();
+        }
+        return ans;
+    }
+};
