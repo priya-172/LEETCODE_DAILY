@@ -1,3 +1,4 @@
+//4 th may,2022,day 4
 class Solution {
 public:
     int maxOperations(vector<int>& nums, int k) {
