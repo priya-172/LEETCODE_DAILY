@@ -1,0 +1,25 @@
+//may 7,2022
+class Solution {
+public:
+    bool find132pattern(vector<int>& nums) {
+        int n=nums.size();
+   stack<pair<int,int>>st;//monotonic decreasing stack
+      int mini=nums[0];
+        for(int i=1;i<n;++i){
+        //st.top().first--> j th val-->max val
+        // st.top().second--> i th val -->min val 
+        
+            //stack isn't empty and if n is greater than top(st.top().first) of the stack then pop it 
+         //nums[i]--->become j th val
+         while(!st.empty() && nums[i]>=st.top().first) {
+             st.pop();
+         
+         }
+            //is stack isn't empty and k the val is less than top of the stack and k th val is less than i th val
+           if(!st.empty() && nums[i]<st.top().first && nums[i]>st.top().second) return true;
+           st.push({nums[i],mini});
+            mini=min(mini,nums[i]);   
+        }
+        return false;
+    }
+};
